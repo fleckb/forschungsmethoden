@@ -1,4 +1,4 @@
-forschungsmethoden
-==================
+# Forschungsmethoden #
 
-VU Forschungsmethoden WS 2012 - Gruppe 8
+WS 2012  
+Gruppe 8
