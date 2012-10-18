@@ -38,11 +38,12 @@ Security Mechanisms for Low-End Embedded Systems _Dipl.-Ing. Thomas Flanitzer_
    Flanitzer_
 
 **Rafael Konik**
- - Erhebung und Evaluierung von Akzeptanz und Nutzung der zukünftigen elektronischen Patientenakte in Österreich
-   _René Baranyi
+ - Erhebung und Evaluierung von Akzeptanz und Nutzung der zukünftigen 
+   elektronischen Patientenakte in Österreich _René Baranyi_
 
- - Heimautomationssystem - Theorie und Praxis _Hannes Brandstetter
+ - Heimautomationssystem - Theorie und Praxis _Hannes Brandstetter_
 
- - Einsatz von Honeyclient Technologien zur Steigerung der Sicherheit im universitärem Umfeld _Christian Kekeiss
+ - Einsatz von Honeyclient Technologien zur Steigerung der Sicherheit im
+   universitärem Umfeld _Christian Kekeiss_
 
 **Bernhard Fleck**
