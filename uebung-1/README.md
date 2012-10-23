@@ -1,8 +1,3 @@
-# Forschungsmethoden #
-
-WS 2012  
-Gruppe 8
-
 ## Übung 1: Analyse Diplomarbeiten aus EPILOG WS 2008 ##
 
 ### Arbeiten mit Preis ###
@@ -52,3 +47,17 @@ Security Mechanisms for Low-End Embedded Systems _Dipl.-Ing. Thomas Flanitzer_
 
  - Evaluating Object-Oriented Software Metrics for Source Code Change
    Analysis - A Study on Open Source Projects _Andreas Mauczka_ 
+
+ - J3DVN - A Generic Framework for 3D Software Visualization _Florian Breier_
+
+
+### Wissenschaftliche Methoden ###
+
+ - Literatur Recherche & Zitieren
+ - Implementieren
+ - Benchmarking
+ - Studien / Umfragen
+ - Mathematisches Beweisen
+ - Modellierung
+ - Simulation
+ - Model Checking
