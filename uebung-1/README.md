@@ -1,5 +1,8 @@
 ## Übung 1: Analyse Diplomarbeiten aus EPILOG WS 2008 ##
 
+Presenter für die Übung 1: **Stephan Matiasch**
+
+
 ### Arbeiten mit Preis ###
 
 Solution Methods for the Social Golfer Problem _Dipl.-Ing. Markus Triska_
