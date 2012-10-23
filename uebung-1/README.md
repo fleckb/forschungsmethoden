@@ -3,7 +3,7 @@
 WS 2012  
 Gruppe 8
 
-## Übung 1: Analyse Diplomarbeiten aus EPILOG WS 2012 ##
+## Übung 1: Analyse Diplomarbeiten aus EPILOG WS 2008 ##
 
 ### Arbeiten mit Preis ###
 
@@ -47,3 +47,8 @@ Security Mechanisms for Low-End Embedded Systems _Dipl.-Ing. Thomas Flanitzer_
    universitärem Umfeld _Christian Kekeiss_
 
 **Bernhard Fleck**
+
+ - Biomechanische Schlaganalyse im Kyokushin-Karate _Melanie Fraunschiel_
+
+ - Evaluating Object-Oriented Software Metrics for Source Code Change
+   Analysis - A Study on Open Source Projects _Andreas Mauczka_ 
