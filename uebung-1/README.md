@@ -42,9 +42,13 @@ Security Mechanisms for Low-End Embedded Systems _Dipl.-Ing. Thomas Flanitzer_
  
  - Security Mechanisms for Low-End Embedded Systems _Dipl.-Ing. Thomas
    Flanitzer_
+ 
  - Analyse, Auswertung und Visualisierung umfangreicher textueller Daten mit 
-   dem Schwerpunkt der elektronischen Bürgerzufri_
+   dem Schwerpunkt der elektronischen Bürgerzufriedenheitserhebung als Aspekt
+   des e-Government _Elham Hedayati-Rad_
+
 **Rafael Konik**
+
  - Erhebung und Evaluierung von Akzeptanz und Nutzung der zukünftigen 
    elektronischen Patientenakte in Österreich _René Baranyi_
 
