@@ -1,6 +1,14 @@
 ## Übung 1: Analyse Diplomarbeiten aus EPILOG WS 2008 ##
 
-Presenter für die Übung 1: **Stephan Matiasch**
+Presenter für die Übung 1: **Bernhard Fleck**
+
+Abzugebende Files:
+
+Forschungsmethoden-WS2012-Uebung-1-Gruppe-8.pptx - Präsentationsfolien  
+Forschungsmethoden-WS2012-Uebung-1-Gruppe-8.pdf - Bericht
+
+Abzugeben per Mail an eva.kuehn@tuwien.ac.at mit Betreff:
+`Forschungsmethoden-WS2012-Uebung-1-Gruppe-8`
 
 
 ### Arbeiten mit Preis ###
@@ -64,3 +72,5 @@ Security Mechanisms for Low-End Embedded Systems _Dipl.-Ing. Thomas Flanitzer_
  - Modellierung
  - Simulation
  - Model Checking
+ - Kontrolliertes Experiment
+
