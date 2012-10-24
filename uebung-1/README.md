@@ -25,15 +25,10 @@ Security Mechanisms for Low-End Embedded Systems _Dipl.-Ing. Thomas Flanitzer_
 
 **Harald Watzke**
 
+ - Solution Methods for the Social Golfer Problem _Dipl.-Ing. Markus Triska_
+
  - Design and Implementation of the JavaSpaces API Standard for XVSM _Laszlo 
    Keszthelyi_
-
- - Design and Implementation of MozartSpaces, the Java Reference Implemention
-   of XVSM - Timeout Handling, Notifications and Aspects _Michael Pröstler_
-
- - Design and Implementation of MozartSpaces, the Java Reference Implemention
-   of XVSM - Custom Coordinators, Transactions and XML protocol _Christian
-   Schreiber_ **oder**
 
  - Design and Implementation of XcoSpaces, the .Net Reference Implementation
    of XVSM - Core Architecture and Aspects _Thomas Scheller_
