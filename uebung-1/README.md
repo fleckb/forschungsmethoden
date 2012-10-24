@@ -42,6 +42,9 @@ Security Mechanisms for Low-End Embedded Systems _Dipl.-Ing. Thomas Flanitzer_
  
  - Security Mechanisms for Low-End Embedded Systems _Dipl.-Ing. Thomas
    Flanitzer_
+ - Analyse, Auswertung und Visualisierung umfangreicher textueller Daten mit 
+   dem Schwerpunkt der elektronischen Bürgerzufriedenheitserhebung als 
+   Aspekt des e-Government _Elham Hedayati-Rad
 
 **Rafael Konik**
  - Erhebung und Evaluierung von Akzeptanz und Nutzung der zukünftigen 
