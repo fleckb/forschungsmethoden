@@ -77,4 +77,5 @@ Security Mechanisms for Low-End Embedded Systems _Dipl.-Ing. Thomas Flanitzer_
  - Simulation
  - Model Checking
  - Kontrolliertes Experiment
+ - Hypothese & Evaluierung
 
