@@ -42,6 +42,10 @@ Security Mechanisms for Low-End Embedded Systems _Dipl.-Ing. Thomas Flanitzer_
    dem Schwerpunkt der elektronischen Bürgerzufriedenheitserhebung als Aspekt
    des e-Government _Elham Hedayati-Rad_
 
+ - Identifikation und Analyse sicherheitsrelevanter Kriterien für Mobile 
+   Contactless Payment-Systeme zur Förderung der Akzeptanz beim 
+   Endanwender  _Yvonne Hren_ 
+
 **Rafael Konik**
 
  - Erhebung und Evaluierung von Akzeptanz und Nutzung der zukünftigen 
