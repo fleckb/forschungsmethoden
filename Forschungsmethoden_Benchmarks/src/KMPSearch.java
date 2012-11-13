@@ -1,17 +1,27 @@
+import java.io.InputStream;
 import java.util.List;
 
 /**
  * Knuth-Morris-Pratt Search Algorithm
  * 
  * */
-public class KMPSearch implements SearchAlgorithm{
+public class KMPSearch extends AlgoImpl{
 
+	public KMPSearch(){
+		super();
+	}
+	
+	public KMPSearch(int intervall){
+		super();
+		log = new LogThread("Knuth-Morris-Pratt", intervall, this);		
+	}
+	
 	@Override
-	public Object doSearch(List<String> input, String string) {
-
+	public Object doSearch(InputStream input, String searchstring, int num) {
+		log.run();
 		return null;
 	}
-
+	
 	public int searchKMP(char[] w, char[] s, int[] t)
 	 {
 	  int m=0;
