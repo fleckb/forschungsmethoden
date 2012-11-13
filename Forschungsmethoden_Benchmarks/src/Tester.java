@@ -23,39 +23,47 @@ public class Tester {
 		super();
 	}
 	
-	public Tester(InputStream in, String word, int num){
+	public Tester(String al, InputStream in, String word, int num){
 		super();
-		doWork(in, word, num);
+		doWork(al, in, word, num);
 	}
 
-	private void doWork(InputStream in, String word, int num) {
-		this.algo = new KMPSearch();
-		algo.doSearch(in, word, num);
+	private void doWork(String al, InputStream in, String word, int num) {
+		//Run selected algorithm
+		if(al.equals("KMP")){
+			this.algo = new KMPSearch();
+			algo.doSearch(in, word, num);
+		}
+		else {
+			
+		}
 	}
 
 	public static void main(String[] args) {
 		
 		File file = null;
-		InputStream input;
+		InputStream input = null;
 		
-		if((args.length != 3) ||
-				!(Integer.getInteger(args[2]) == null)){
-			System.err.println("Usage: Tester <Path-to-input-file> <Search string> <#>");
+		if((args.length != 4) ||
+				!(Integer.getInteger(args[3]) == null)){
+			System.err.println("Usage: Tester <Algorithm> <Path-to-input-file> <Search string> <#>");
 			System.exit(1);
 		}
 		
 		try {
-			file = new File(args[0]);
+			file = new File(args[1]);
 			
-			if(!file.exists())
+			if(!file.exists()){
+				System.err.println("Inputfile not found.");
 				System.exit(1);
+				}
 			
 			input = new FileInputStream(file);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-		Tester tester = new Tester();
+		Tester tester = new Tester(args[0], input, args[2], Integer.parseInt(args[3]));
 
 	}
 }
