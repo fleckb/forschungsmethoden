@@ -13,6 +13,8 @@ import java.io.InputStreamReader;
  * @author fleckb
  */
 public class NaiveFinder implements Finder {
+	
+	FinderStatusListener statusListener;
 
 	@Override
 	public FinderResult find(InputStream inputText, String searchString) {
@@ -25,7 +27,12 @@ public class NaiveFinder implements Finder {
 		}
 		return result;		
 	}
-	
+		
+	@Override
+	public void setStatusListener(FinderStatusListener listener) {
+		this.statusListener = listener;		
+	}
+
 	/**
 	 * Helper method to convert an InputStream to a String.
 	 * There are other (and faster) ways to do this...
@@ -50,5 +57,5 @@ public class NaiveFinder implements Finder {
 		
 		return text.toString();
 	}
-
+	
 }
