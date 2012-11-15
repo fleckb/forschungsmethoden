@@ -1,5 +1,7 @@
 package benchmark;
 
+import benchmark.interfaces.StopWatch;
+
 public class DefaultSystemStopWatch implements StopWatch {
 	
 	private long startTime;

@@ -10,7 +10,7 @@ public class ResultAccumulator {
 			accumulatedResult.elapsedTime += result.elapsedTime;
 			
 			// TODO: better idea?
-			accumulatedResult.found = result.found;
+			accumulatedResult.found |= result.found;
 		}
 		accumulatedResult.elapsedTime /= results.length;
 		

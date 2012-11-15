@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import benchmark.DefaultSystemStopWatch;
-import benchmark.StopWatch;
+import benchmark.interfaces.StopWatch;
 
 public class TestStopWatch {
 

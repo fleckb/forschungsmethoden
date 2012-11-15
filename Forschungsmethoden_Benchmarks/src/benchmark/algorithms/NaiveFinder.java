@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import benchmark.algorithms.interfaces.Finder;
+import benchmark.algorithms.interfaces.FinderStatusListener;
+
 /**
  * Naive search implementation.
  * 

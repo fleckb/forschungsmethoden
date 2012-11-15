@@ -3,9 +3,13 @@ package benchmark;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import benchmark.algorithms.Finder;
+import main.LogThread;
+
 import benchmark.algorithms.FinderResult;
-import benchmark.algorithms.FinderStatusListener;
+import benchmark.algorithms.interfaces.Finder;
+import benchmark.algorithms.interfaces.FinderStatusListener;
+import benchmark.interfaces.Reporter;
+import benchmark.interfaces.StopWatch;
 
 public class Benchmarker implements FinderStatusListener {
 	
@@ -17,7 +21,7 @@ public class Benchmarker implements FinderStatusListener {
 	private String searchString;
 	private int iterations;
 	private BenchmarkResult[] benchmarkResult;
-
+	
 	public Benchmarker(Finder algorithm, Reporter reporter) {
 		this.algorithm = algorithm;
 		this.reporter = reporter;
@@ -43,7 +47,8 @@ public class Benchmarker implements FinderStatusListener {
 			// found true/false
 			benchmarkResult[i].found = result.found;
 		}
-		
+
+		reporter.shutdown();
 	}
 
 	public void prepare(InputStream inputText, String searchString,
@@ -61,8 +66,6 @@ public class Benchmarker implements FinderStatusListener {
 
 	@Override
 	public void searchStringFound(int line, int column) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

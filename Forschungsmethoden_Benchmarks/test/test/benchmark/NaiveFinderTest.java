@@ -9,9 +9,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import benchmark.algorithms.Finder;
 import benchmark.algorithms.FinderResult;
 import benchmark.algorithms.NaiveFinder;
+import benchmark.algorithms.interfaces.Finder;
 
 public class NaiveFinderTest {
 	

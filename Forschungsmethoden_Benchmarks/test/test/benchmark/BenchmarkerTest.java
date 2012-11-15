@@ -11,8 +11,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import benchmark.Benchmarker;
-import benchmark.algorithms.Finder;
 import benchmark.algorithms.NaiveFinder;
+import benchmark.algorithms.interfaces.Finder;
 
 
 public class BenchmarkerTest {
