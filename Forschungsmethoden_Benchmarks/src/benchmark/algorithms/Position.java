@@ -2,6 +2,7 @@ package benchmark.algorithms;
 
 public class Position {
 	
+<<<<<<< HEAD
 	private int line;
 	private int column;
 	
@@ -30,7 +31,7 @@ public class Position {
 	public void setColumn(int column) {
 		this.column = column;
 	}
-	
+
 	@Override
 	public String toString(){
 		String ret = "";
