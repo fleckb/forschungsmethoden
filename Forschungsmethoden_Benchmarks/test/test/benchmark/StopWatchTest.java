@@ -3,10 +3,10 @@ package test.benchmark;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import benchmark.DefaultSystemStopWatch;
-import benchmark.interfaces.StopWatch;
+import benchmark.harness.DefaultSystemStopWatch;
+import benchmark.harness.StopWatch;
 
-public class TestStopWatch {
+public class StopWatchTest {
 
 	@Test
 	public void testBasicStopWatchUsage() throws Exception {

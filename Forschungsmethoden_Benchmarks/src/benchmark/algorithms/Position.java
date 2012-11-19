@@ -2,15 +2,18 @@ package benchmark.algorithms;
 
 public class Position {
 	
-	private int line = -1;
-	private int column = -1;
+<<<<<<< HEAD
+	private int line;
+	private int column;
 	
-	public Position(){}
+	public Position(){
+		this.line = -1;
+		this.column = -1;
+	}
 	
-	
-	public Position(int line, int col){
+	public Position(int line, int column){
 		this.line = line;
-		this.column = col;
+		this.column = column;
 	}
 
 	public int getLine() {
@@ -36,6 +39,5 @@ public class Position {
 		ret += (this.line != -1 && column != -1) ? "Line " + line + ", Column " + column + " ": "";
 		
 		return ret;
-		
 	}
 }

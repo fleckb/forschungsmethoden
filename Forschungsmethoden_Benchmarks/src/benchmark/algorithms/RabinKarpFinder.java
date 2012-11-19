@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.Random;
 
-import benchmark.algorithms.interfaces.Finder;
-import benchmark.algorithms.interfaces.FinderStatusListener;
+import benchmark.utility.StreamsHelper;
+
 
 /**
  * //Source: http://algs4.cs.princeton.edu/53substring/RabinKarp.java.html
