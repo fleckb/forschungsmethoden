@@ -6,20 +6,25 @@ package benchmark.harness;
  * @author fleckb
  *
  */
-public interface StopWatch {
+public abstract class StopWatch {
 	
-	public void start();
+	private static float ONE_MILLION = 1000000;
+	
+	public abstract void start();
 	
 	/**
-	 * 
 	 * @return Time since start() in nanoseconds.
 	 */
-	public long split();
+	public abstract long split();
 	
 	/**
 	 * Resets the stop watch.
 	 * @return Time since start() in nanoseconds.
 	 */
-	public long stop();
-
+	public abstract long stop();
+	
+	
+	public static float nanoToMilliseconds(long nanoseconds) {
+		return (float)nanoseconds / ONE_MILLION;
+	}
 }
