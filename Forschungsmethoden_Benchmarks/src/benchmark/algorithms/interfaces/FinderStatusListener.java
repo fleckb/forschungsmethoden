@@ -6,6 +6,4 @@ public interface FinderStatusListener {
 	
 	public void progressUpdate(float percentage);
 
-	void searchStringFound(int position);
-
 }
