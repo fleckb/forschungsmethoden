@@ -1,14 +1,12 @@
-package benchmark;
+package benchmark.reporter;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.text.DateFormat;
 import java.util.Date;
 
-import benchmark.interfaces.Reporter;
+import benchmark.harness.BenchmarkResult;
 
 public class CsvReporter implements Reporter {
 
@@ -33,9 +31,6 @@ public class CsvReporter implements Reporter {
 	}
 	
 	@Override
-	public void report(BenchmarkResult result, OutputStreamWriter outputStream) {}
-
-	@Override
 	public void report(BenchmarkResult result) {	
 		try {
 			out.write(df.format(System.currentTimeMillis()) + "#" + result.toString() + "#");
@@ -44,28 +39,4 @@ public class CsvReporter implements Reporter {
 			e.printStackTrace();
 		}
 	}
-	
-	@Override
-	public void report(String values) {	
-		try {
-			out.write(df.format(System.currentTimeMillis()) + "#" + values + "#");
-			out.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public void shutdown(){
-		try {
-			out.flush();
-			out.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public void report(BenchmarkResult result, OutputStream outputStream) {}
-
 }

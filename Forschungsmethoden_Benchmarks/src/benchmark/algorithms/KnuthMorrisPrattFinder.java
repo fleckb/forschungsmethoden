@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import benchmark.algorithms.interfaces.Finder;
-import benchmark.algorithms.interfaces.FinderStatusListener;
+import benchmark.utility.StreamsHelper;
+
 
 /**
  * Source: http://www.fmi.uni-sofia.bg/fmi/logic/vboutchkova/sources/KMPMatch_java.html
