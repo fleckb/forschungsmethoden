@@ -45,7 +45,7 @@ public class Benchmarker implements FinderStatusListener {
 			// time of the whole search
 			benchmarkResult[i].elapsedTime = watch.stop();
 			// found true/false
-			benchmarkResult[i].found = result.found;
+			benchmarkResult[i].found = result.isFound();
 		}
 
 		reporter.shutdown();
@@ -66,6 +66,10 @@ public class Benchmarker implements FinderStatusListener {
 
 	@Override
 	public void searchStringFound(int line, int column) {
+	}
+	@Override
+	public void searchStringFound(int position) {
+		
 	}
 
 	@Override
