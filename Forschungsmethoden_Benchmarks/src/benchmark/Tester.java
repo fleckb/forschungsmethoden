@@ -37,18 +37,18 @@ public class Tester {
 	
 	public Tester(){}
 	
-	public Tester(String al, InputStream in, String word, int num){
+	public Tester(String al, InputStream in, String word){
 		algo = selectAlgorithm(al);
 		reporter = new CsvReporter(algoName);
 		bench = new Benchmarker(algo);
-		bench.prepare(in, word, num);
+		bench.prepare(in, word);
 	}
 
-	private void reInit(String al, InputStream in, String word, int num){
+	private void reInit(String al, InputStream in, String word){
 		algo = selectAlgorithm(al);
 		reporter = new CsvReporter(algoName);
 		bench = new Benchmarker(algo);
-		bench.prepare(in, word, num);
+		bench.prepare(in, word);
 	}
 	
 	private Finder selectAlgorithm(String s){
@@ -107,7 +107,8 @@ public class Tester {
 			e.printStackTrace();
 		}
 		
-		Tester tester = new Tester(args[0], in, args[2], Integer.parseInt(args[3]));
+		int iterations = Integer.parseInt(args[3]);
+		Tester tester = new Tester(args[0], in, args[2]);
 		tester.start();
 		
 		//TODO Implement Checks etc. for several runs, with new input
