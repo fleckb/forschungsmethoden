@@ -7,6 +7,6 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
 	test.benchmark.BenchmarkerTest.class,
 	test.benchmark.NaiveFinderTest.class,
-	test.benchmark.TestStopWatch.class
+	test.benchmark.StopWatchTest.class
 })
 public final class AllTests {}

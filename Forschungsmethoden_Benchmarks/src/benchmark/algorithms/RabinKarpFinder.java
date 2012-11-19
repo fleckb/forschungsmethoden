@@ -4,8 +4,8 @@ import java.io.InputStream;
 import java.math.BigInteger;
 import java.util.Random;
 
-import benchmark.algorithms.interfaces.Finder;
-import benchmark.algorithms.interfaces.FinderStatusListener;
+import benchmark.utility.StreamsHelper;
+
 
 /**
  * //Source: http://algs4.cs.princeton.edu/53substring/RabinKarp.java.html
@@ -40,7 +40,7 @@ public class RabinKarpFinder implements Finder {
 	public RabinKarpFinder(InputStream stream, String pat, int it){
 		this.iterations = it;
 		this.pattern = pat;
-		this.text = FinderHelper.inputStreamToString(stream);
+		this.text = StreamsHelper.inputStreamToString(stream);
 		this.oldText = text.length();
 		
         R = 256;

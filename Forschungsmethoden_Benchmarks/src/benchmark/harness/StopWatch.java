@@ -1,4 +1,4 @@
-package benchmark.interfaces;
+package benchmark.harness;
 
 /**
  * Basic interface for a stop watch.

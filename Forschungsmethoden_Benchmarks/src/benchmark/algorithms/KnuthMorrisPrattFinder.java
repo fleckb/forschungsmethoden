@@ -1,8 +1,8 @@
 package benchmark.algorithms;
 import java.io.InputStream;
 
-import benchmark.algorithms.interfaces.Finder;
-import benchmark.algorithms.interfaces.FinderStatusListener;
+import benchmark.utility.StreamsHelper;
+
 
 /**
  * Source: http://www.fmi.uni-sofia.bg/fmi/logic/vboutchkova/sources/KMPMatch_java.html
@@ -35,7 +35,7 @@ public class KnuthMorrisPrattFinder implements Finder {
 	public KnuthMorrisPrattFinder(InputStream stream, String needle, int it){
 		this.iterations = it;
 		this.pattern = needle;
-		this.text = FinderHelper.inputStreamToString(stream);
+		this.text = StreamsHelper.inputStreamToString(stream);
 		this.oldText = text.length();
 		
 	}

@@ -1,4 +1,5 @@
-package main;
+package benchmark;
+
 import java.util.List;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -13,13 +14,13 @@ import java.lang.management.*;
 
 import javax.swing.JPanel;
 
-import benchmark.Benchmarker;
-import benchmark.CsvReporter;
+import benchmark.algorithms.Finder;
 import benchmark.algorithms.KnuthMorrisPrattFinder;
 import benchmark.algorithms.NaiveFinder;
 import benchmark.algorithms.RabinKarpFinder;
-import benchmark.algorithms.interfaces.Finder;
-import benchmark.interfaces.Reporter;
+import benchmark.harness.Benchmarker;
+import benchmark.reporter.CsvReporter;
+import benchmark.reporter.Reporter;
 
 /***
  * Testerklasse die zum Benchmarken aufgerufen wird
@@ -39,14 +40,14 @@ public class Tester {
 	public Tester(String al, InputStream in, String word, int num){
 		algo = selectAlgorithm(al);
 		reporter = new CsvReporter(algoName);
-		bench = new Benchmarker(algo, reporter);
+		bench = new Benchmarker(algo);
 		bench.prepare(in, word, num);
 	}
 
 	private void reInit(String al, InputStream in, String word, int num){
 		algo = selectAlgorithm(al);
 		reporter = new CsvReporter(algoName);
-		bench = new Benchmarker(algo, reporter);
+		bench = new Benchmarker(algo);
 		bench.prepare(in, word, num);
 	}
 	

@@ -1,6 +1,5 @@
-package benchmark;
+package benchmark.harness;
 
-import benchmark.interfaces.StopWatch;
 
 public class DefaultSystemStopWatch implements StopWatch {
 	

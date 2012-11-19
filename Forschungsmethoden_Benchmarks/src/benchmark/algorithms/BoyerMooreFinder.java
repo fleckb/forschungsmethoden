@@ -2,10 +2,9 @@ package benchmark.algorithms;
 
 import java.io.InputStream;
 
-import main.LogThread;
 
-import benchmark.algorithms.interfaces.Finder;
-import benchmark.algorithms.interfaces.FinderStatusListener;
+import benchmark.harness.ResourceMonitor;
+import benchmark.utility.StreamsHelper;
 
 /**
  * Source http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm
@@ -33,7 +32,7 @@ public class BoyerMooreFinder implements Finder{
 	public BoyerMooreFinder(InputStream stream, String needle, int it){
 		this.iterations = it;
 		this.needle = needle;
-		this.haystack = FinderHelper.inputStreamToString(stream);
+		this.haystack = StreamsHelper.inputStreamToString(stream);
 		this.oldHayStack = haystack.length();
 		
 		preprocess();

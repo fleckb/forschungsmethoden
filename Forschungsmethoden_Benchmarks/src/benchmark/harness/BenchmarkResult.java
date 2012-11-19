@@ -1,4 +1,4 @@
-package benchmark;
+package benchmark.harness;
 
 public class BenchmarkResult {
 	

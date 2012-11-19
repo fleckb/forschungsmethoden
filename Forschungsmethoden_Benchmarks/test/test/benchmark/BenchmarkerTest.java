@@ -3,16 +3,17 @@ package test.benchmark;
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
-import java.io.OutputStream;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import benchmark.Benchmarker;
+import test.benchmark.reporter.TestReporter;
+
+import benchmark.algorithms.Finder;
 import benchmark.algorithms.NaiveFinder;
-import benchmark.algorithms.interfaces.Finder;
+import benchmark.harness.Benchmarker;
 
 
 public class BenchmarkerTest {
@@ -20,9 +21,6 @@ public class BenchmarkerTest {
 	private final String text = "This is a test for a naive search!\nForm follows function.";
 	private final String searchString = "for";
 	
-	private OutputStream output = null;
-
-
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -42,7 +40,7 @@ public class BenchmarkerTest {
 		TestReporter reporter = new TestReporter();
 		
 		Finder naiveFinder = new NaiveFinder();
-		Benchmarker benchmark = new Benchmarker(naiveFinder, reporter);
+		Benchmarker benchmark = new Benchmarker(naiveFinder);
 		
 		// Setup the benchmark
 		benchmark.prepare(inputText, searchString, iterations);
@@ -51,7 +49,7 @@ public class BenchmarkerTest {
 		benchmark.run();
 		
 		// Get the results
-		benchmark.report(output);
+		benchmark.report(reporter);
 		
 		assertEquals("Search string found", true, reporter.result.found);
 		assertTrue("Elapsed time greater than zero", reporter.result.elapsedTime>0);

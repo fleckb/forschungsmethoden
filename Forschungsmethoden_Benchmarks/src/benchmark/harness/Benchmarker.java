@@ -1,20 +1,21 @@
-package benchmark;
+package benchmark.harness;
 
 import java.io.InputStream;
-import java.io.OutputStream;
 
-import main.LogThread;
-
+import benchmark.algorithms.Finder;
 import benchmark.algorithms.FinderResult;
-import benchmark.algorithms.interfaces.Finder;
-import benchmark.algorithms.interfaces.FinderStatusListener;
-import benchmark.interfaces.Reporter;
-import benchmark.interfaces.StopWatch;
+import benchmark.algorithms.FinderStatusListener;
+import benchmark.reporter.Reporter;
 
+/**
+ * Central class to run benchmarks.
+ * 
+ * @author fleckb
+ *
+ */
 public class Benchmarker implements FinderStatusListener {
 	
 	private final Finder algorithm;
-	private final Reporter reporter;
 	private final StopWatch watch;
 
 	private InputStream inputText;
@@ -22,9 +23,8 @@ public class Benchmarker implements FinderStatusListener {
 	private int iterations;
 	private BenchmarkResult[] benchmarkResult;
 	
-	public Benchmarker(Finder algorithm, Reporter reporter) {
+	public Benchmarker(Finder algorithm) {
 		this.algorithm = algorithm;
-		this.reporter = reporter;
 		this.algorithm.setStatusListener(this);
 		this.watch = new DefaultSystemStopWatch();
 	}
@@ -47,8 +47,6 @@ public class Benchmarker implements FinderStatusListener {
 			// found true/false
 			benchmarkResult[i].found = result.isFound();
 		}
-
-		reporter.shutdown();
 	}
 
 	public void prepare(InputStream inputText, String searchString,
@@ -59,9 +57,9 @@ public class Benchmarker implements FinderStatusListener {
 		this.benchmarkResult = new BenchmarkResult[iterations];
 	}
 
-	public void report(OutputStream output) {
+	public void report(Reporter reporter) {
 		BenchmarkResult result = ResultAccumulator.accumulate(benchmarkResult);
-		reporter.report(result, output);
+		reporter.report(result);
 	}
 
 	@Override
