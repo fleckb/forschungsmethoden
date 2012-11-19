@@ -1,7 +1,7 @@
 package benchmark.harness;
 
 
-public class DefaultSystemStopWatch implements StopWatch {
+public class DefaultSystemStopWatch extends StopWatch {
 	
 	private long startTime;
 	
@@ -21,8 +21,9 @@ public class DefaultSystemStopWatch implements StopWatch {
 
 	@Override
 	public long stop() {
+		long oldStartTime = startTime;
 		startTime = -1;
-		return System.nanoTime() - startTime;
+		return System.nanoTime() - oldStartTime;
 	}
 
 }
