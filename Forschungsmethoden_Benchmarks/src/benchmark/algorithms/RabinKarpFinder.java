@@ -7,9 +7,6 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.Random;
 
-import benchmark.utility.StreamsHelper;
-
-
 /**
  * //Source: http://algs4.cs.princeton.edu/53substring/RabinKarp.java.html
  * */
@@ -22,11 +19,10 @@ public class RabinKarpFinder implements Finder {
 	private long RM;         // R^(M-1) % Q
 
 	private String pattern = null;
-	private int percentage = 0;
 	private FinderStatusListener listener = null;
 //	private FinderResult result = null;
 	private int lineNum = 0;
-	private BufferedReader reader = null;
+	//private BufferedReader reader = null;
 
 	public RabinKarpFinder(){}
 
@@ -37,7 +33,7 @@ public class RabinKarpFinder implements Finder {
 	public RabinKarpFinder(InputStream stream, String pat){
 		this.pattern = pat;
 
-		reader = new BufferedReader(new InputStreamReader(stream));
+		//reader = new BufferedReader(new InputStreamReader(stream));
 		R = 256;
 		M = pat.length();
 		Q = longRandomPrime();
@@ -66,7 +62,7 @@ public class RabinKarpFinder implements Finder {
 				int i = 0;
 
 				if(i >= 0){
-					listener.searchStringFound(lineNum,i);
+					listener.searchStringFound(new Position(lineNum,i));
 
 					result.incNumberOfHits();
 					result.found |= true;

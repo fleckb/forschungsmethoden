@@ -2,7 +2,6 @@ package benchmark.algorithms;
 
 public class Position {
 	
-<<<<<<< HEAD
 	private int line;
 	private int column;
 	

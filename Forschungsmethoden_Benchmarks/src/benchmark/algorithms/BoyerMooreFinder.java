@@ -5,10 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-
-import benchmark.harness.ResourceMonitor;
-import benchmark.utility.StreamsHelper;
-
 /**
  * Source http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm
  * */
@@ -35,7 +31,7 @@ public class BoyerMooreFinder implements Finder{
 
 	private void preprocess(){
 		charTable = makeCharTable();
-		offsetTable = makeOffsetTable	);
+		offsetTable = makeOffsetTable();
 	}
 
 	@Override
@@ -57,7 +53,7 @@ public class BoyerMooreFinder implements Finder{
 				int i = indexOf(line);
 
 				if(i > 0){
-					listener.searchStringFound(lineNum,i);
+					listener.searchStringFound(new Position(lineNum,i));
 
 					result.incNumberOfHits();
 					result.found |= true;

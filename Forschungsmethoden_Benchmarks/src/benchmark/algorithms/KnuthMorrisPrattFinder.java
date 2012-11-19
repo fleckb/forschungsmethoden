@@ -1,11 +1,9 @@
 package benchmark.algorithms;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
-import benchmark.utility.StreamsHelper;
-
 
 /**
  * Source: http://www.fmi.uni-sofia.bg/fmi/logic/vboutchkova/sources/KMPMatch_java.html
@@ -13,7 +11,6 @@ import benchmark.utility.StreamsHelper;
 public class KnuthMorrisPrattFinder implements Finder {
 
 	private String pattern = null;
-	private int percentage = 0;
 	private FinderStatusListener listener = null;
 //	private FinderResult result = null;
 	private int[] failure;
@@ -47,7 +44,7 @@ public class KnuthMorrisPrattFinder implements Finder {
 				int i = this.match(line);
 
 				if(i > 0){
-					listener.searchStringFound(lineNum,i);
+					listener.searchStringFound(new Position(lineNum,i));
 
 					result.incNumberOfHits();
 					result.found |= true;
