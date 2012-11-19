@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 
 /**
  * Source http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm
@@ -15,8 +16,9 @@ public class BoyerMooreFinder implements Finder{
 	private int offsetTable[] = null;
 	private FinderStatusListener listener = null;
 //	private FinderResult result = null;
-	private int lineNum = 0;
+//	private int lineNum = 0;
 	BufferedReader reader = null;
+	private final String charset = "UTF-8";
 
 	public BoyerMooreFinder(){}
 
@@ -36,8 +38,15 @@ public class BoyerMooreFinder implements Finder{
 
 	@Override
 	public FinderResult find(InputStream inputText, String searchString) {
-
-		BufferedReader reader = new BufferedReader(new InputStreamReader(inputText));
+		
+		int lineNum = 0;
+		
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new InputStreamReader(inputText,charset));
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
 		String line = "";
 
 		//Part of the algorithm, so has to be repeated for every find()-Call
@@ -45,6 +54,8 @@ public class BoyerMooreFinder implements Finder{
 
 		FinderResult result = new FinderResult();
 
+		long progress = 0;
+		
 		try {
 			while((line = reader.readLine()) != null){
 				lineNum++;
@@ -67,7 +78,12 @@ public class BoyerMooreFinder implements Finder{
 				else if(i == -1){
 					//Pattern not found in this line
 				}
-				return result;
+				
+				if(listener != null) {
+					listener.searchStringFound(new Position(lineNum,i));
+					progress += line.getBytes(charset).length;
+					listener.progressUpdate(progress);
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

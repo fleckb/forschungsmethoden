@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 
 /**
  * Source: http://www.fmi.uni-sofia.bg/fmi/logic/vboutchkova/sources/KMPMatch_java.html
@@ -15,14 +16,15 @@ public class KnuthMorrisPrattFinder implements Finder {
 //	private FinderResult result = null;
 	private int[] failure;
 	private BufferedReader reader = null;
-	private int lineNum = 0;
+//	private int lineNum = 0;
+	private final String charset = "UTF-8";
 
 	public KnuthMorrisPrattFinder(){}
 
 	public KnuthMorrisPrattFinder(String needle){
 		this.pattern = needle;
 
-		computeFailure();
+		
 	}
 
 	public KnuthMorrisPrattFinder(InputStream stream, String needle){
@@ -33,9 +35,19 @@ public class KnuthMorrisPrattFinder implements Finder {
 	@Override
 	public FinderResult find(InputStream inputText, String searchString) {
 
-		reader = new BufferedReader(new InputStreamReader(inputText));
+		computeFailure();
+		
+		BufferedReader reader = null;
+		
+		try {
+			reader = new BufferedReader(new InputStreamReader(inputText,charset));
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
 		FinderResult result = new FinderResult();
 		String line = "";
+		int lineNum = 0;
+		long progress = 0;
 
 		try {
 			while((line = reader.readLine()) != null){
@@ -55,6 +67,12 @@ public class KnuthMorrisPrattFinder implements Finder {
 				}
 				else if(i == -1){
 					//Pattern not found
+				}
+				
+				if(listener != null) {
+					listener.searchStringFound(new Position(lineNum,i));
+					progress += line.getBytes(charset).length;
+					listener.progressUpdate(progress);
 				}
 			}
 		} catch (IOException e) {

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.util.Random;
 
@@ -21,8 +22,9 @@ public class RabinKarpFinder implements Finder {
 	private String pattern = null;
 	private FinderStatusListener listener = null;
 //	private FinderResult result = null;
-	private int lineNum = 0;
+//	private int lineNum = 0;
 	//private BufferedReader reader = null;
+	private final String charset = "UTF-8";
 
 	public RabinKarpFinder(){}
 
@@ -49,8 +51,17 @@ public class RabinKarpFinder implements Finder {
 
 	@Override
 	public FinderResult find(InputStream inputText, String searchString) {
+		
+		int lineNum = 0;
+		long progress = 0;
+		
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new InputStreamReader(inputText,charset));
+		} catch (UnsupportedEncodingException e1) {
 
-		BufferedReader reader = new BufferedReader(new InputStreamReader(inputText));
+			e1.printStackTrace();
+		}
 		String line = "";
 
 		FinderResult result = new FinderResult();
@@ -70,6 +81,11 @@ public class RabinKarpFinder implements Finder {
 				}
 				else if(i == -1){
 					//Pattern not found
+				}
+				if(listener != null) {
+					listener.searchStringFound(new Position(lineNum,i));
+					progress += line.getBytes(charset).length;
+					listener.progressUpdate(progress);
 				}
 			}
 		} catch (IOException e) {
