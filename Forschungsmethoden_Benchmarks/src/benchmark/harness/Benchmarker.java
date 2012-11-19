@@ -5,6 +5,7 @@ import java.io.InputStream;
 import benchmark.algorithms.Finder;
 import benchmark.algorithms.FinderResult;
 import benchmark.algorithms.FinderStatusListener;
+import benchmark.algorithms.Position;
 import benchmark.reporter.Reporter;
 
 /**
@@ -17,63 +18,61 @@ public class Benchmarker implements FinderStatusListener {
 	
 	private final Finder algorithm;
 	private final StopWatch watch;
+	private final ResourceMonitor monitor;
 
 	private InputStream inputText;
 	private String searchString;
-	private int iterations;
-	private BenchmarkResult[] benchmarkResult;
+	private BenchmarkResult benchmarkResult;
 	
 	public Benchmarker(Finder algorithm) {
 		this.algorithm = algorithm;
 		this.algorithm.setStatusListener(this);
 		this.watch = new DefaultSystemStopWatch();
+		this.monitor = new ResourceMonitor();
 	}
 
 	public void run() {
-		// TODO 
-		//
-		// time to first hit
-		// hits with time of each hit
-		// number of hits
 		
-		for(int i=0; i<iterations; i++) {
-			benchmarkResult[i] = new BenchmarkResult();
-			
-			watch.start();
-			FinderResult result = algorithm.find(inputText, searchString);
-			
-			// time of the whole search
-			benchmarkResult[i].elapsedTime = watch.stop();
-			// found true/false
-			benchmarkResult[i].found = result.isFound();
-		}
+		watch.start();
+		monitor.start();
+		
+		FinderResult result = algorithm.find(inputText, searchString);
+
+		// Stop resource monitoring
+		benchmarkResult.resourceUsage = monitor.stop();
+		// Stop the watch
+		// time of the whole search
+		benchmarkResult.elapsedTime = StopWatch.nanoToMilliseconds(watch.stop());
+		// found true/false
+		benchmarkResult.found = result.isFound();
+		// number of hits
+		benchmarkResult.numberOfHits = result.numberOfHits;
 	}
 
-	public void prepare(InputStream inputText, String searchString,
-			int iterations) {
+	public void prepare(InputStream inputText, String searchString) {
 		this.inputText = inputText;
 		this.searchString = searchString;
-		this.iterations = iterations;
-		this.benchmarkResult = new BenchmarkResult[iterations];
+		this.benchmarkResult = new BenchmarkResult();
 	}
 
 	public void report(Reporter reporter) {
-		BenchmarkResult result = ResultAccumulator.accumulate(benchmarkResult);
-		reporter.report(result);
+		reporter.report(benchmarkResult);
 	}
 
 	@Override
-	public void searchStringFound(int line, int column) {
-	}
-	@Override
-	public void searchStringFound(int position) {
-		
-	}
-
-	@Override
-	public void progressUpdate(float percentage) {
+	public void progressUpdate(long bytesRead) {
 		// TODO Auto-generated method stub
-		
+	}
+
+	@Override
+	public void searchStringFound(Position position) {
+		if(!benchmarkResult.found) {
+			benchmarkResult.found = true;
+			benchmarkResult.timeToFirstHit = StopWatch.nanoToMilliseconds(watch.split());
+			benchmarkResult.hitTimes.add(benchmarkResult.timeToFirstHit);
+		} else {
+			benchmarkResult.hitTimes.add(StopWatch.nanoToMilliseconds(watch.split()));
+		}
 	}
 
 }
