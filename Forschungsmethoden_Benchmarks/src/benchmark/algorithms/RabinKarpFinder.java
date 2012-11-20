@@ -108,7 +108,7 @@ public class RabinKarpFinder implements Finder {
 		int N = line.length(); 
 		if (N < M) 
 			return -1;
-		//        	return N;
+		//  return N;
 
 		long txtHash = hash(line, M); 
 
