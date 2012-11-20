@@ -19,7 +19,10 @@ import benchmark.algorithms.BoyerMooreFinder;
 import benchmark.algorithms.Finder;
 import benchmark.algorithms.FinderResult;
 import benchmark.algorithms.FinderStatusListener;
+import benchmark.algorithms.KnuthMorrisPrattFinder;
+import benchmark.algorithms.NaiveFinder;
 import benchmark.algorithms.Position;
+import benchmark.algorithms.RabinKarpFinder;
 
 @RunWith(JMock.class) 
 public class GenericFinderTest {
@@ -38,8 +41,11 @@ public class GenericFinderTest {
 
 	@Before
 	public void setUp() throws Exception {
-		// Change this to the appropriate class
-		finder = new BoyerMooreFinder();
+		// Change this to the appropriate class you want to check
+		//finder = new BoyerMooreFinder();
+		//finder = new KnuthMorrisPrattFinder();
+		//finder = new NaiveFinder();
+		finder = new RabinKarpFinder();
 	}
 
 	@After
