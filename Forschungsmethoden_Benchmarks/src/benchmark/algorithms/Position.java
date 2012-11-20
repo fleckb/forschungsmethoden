@@ -39,4 +39,15 @@ public class Position {
 		
 		return ret;
 	}
+	
+	@Override
+	public boolean equals(Object object) {
+		if(object instanceof Position) {
+			Position position = (Position)object;
+			if(position.getLine()==getLine() && position.getColumn()==getColumn()) {
+				return true;
+			} 
+		} 
+		return false;
+	}
 }
