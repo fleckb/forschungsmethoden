@@ -8,6 +8,10 @@ public class DefaultSystemStopWatch extends StopWatch {
 	public DefaultSystemStopWatch() {
 		startTime = -1;
 	}
+	
+	protected DefaultSystemStopWatch(long startTime) {
+		this.startTime = startTime;
+	}
 
 	@Override
 	public void start() {
@@ -24,6 +28,11 @@ public class DefaultSystemStopWatch extends StopWatch {
 		long oldStartTime = startTime;
 		startTime = -1;
 		return System.nanoTime() - oldStartTime;
+	}
+
+	@Override
+	public StopWatch copy() {
+		return new DefaultSystemStopWatch(startTime);
 	}
 
 }
