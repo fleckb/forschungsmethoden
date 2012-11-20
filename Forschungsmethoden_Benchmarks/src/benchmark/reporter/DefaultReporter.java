@@ -20,6 +20,7 @@ public class DefaultReporter implements Reporter {
 	public void report(BenchmarkResult result) {
 		try {
 			out.write(result.toString());
+			out.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

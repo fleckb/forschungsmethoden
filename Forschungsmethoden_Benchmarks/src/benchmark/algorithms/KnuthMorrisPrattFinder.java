@@ -113,4 +113,9 @@ public class KnuthMorrisPrattFinder implements Finder {
 		return dfa;
 	}
 
+	@Override
+	public String getAlgorithmName() {
+		return "Knuth-Morris-Pratt";
+	}
+
 }

@@ -1,7 +1,9 @@
 package benchmark.harness;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Holds the results from one benchmark run. 
@@ -41,19 +43,34 @@ public class BenchmarkResult {
 	 */
 	public ResourceUsage resourceUsage;
 	
+	/**
+	 * The used algorithm
+	 */
+	public String algorithm;
+	
 	@Override
-	public String toString() {		
-		String returnVal = "elapsed time: " + String.valueOf(elapsedTime) + 
-				"ms, " + (found ? "search string found" : "search string not found");
+    public String toString() {    
+		NumberFormat nf = NumberFormat.getInstance(Locale.GERMANY);
 		
-		if(found) {
-			returnVal += ", time to first hit: " + String.valueOf(timeToFirstHit) + "ms";
-			returnVal += ", hit times for " + numberOfHits + " hit(s): ";
-			for(Float time : hitTimes) {
-				returnVal += time.toString() + "ms, ";
-			}
-		}
-		
-		return returnVal;
+        String result = "Benchmark run with algorithm: " + algorithm + "\n" + 
+                (found ? "The search string was found " + numberOfHits + " times." : 
+                    "The search string was not found.");
+        
+        result += "\nOverview\nelapsed time (ms);average cpu load (%);peak memory used (MB);time to first hit (ms)\n";
+        result += nf.format(elapsedTime) + ";" + nf.format(resourceUsage.averageCpuUsage) + ";" + nf.format(resourceUsage.peakMemoryUsed) + 
+                ";" + (found ? nf.format(timeToFirstHit) : "-");
+        
+        result += "\nHit times (ms)" + (hitTimes.size()==0 ? "\nno hits" : "");
+        for(Float time : hitTimes) {
+            result += "\n" + nf.format(time);
+        }
+        
+        result += "\nResource Usage during execution at given times\ntime (ms);cpu load (%);memory usage (MB)\n" + 
+                (resourceUsage.measurements.size()==0 ? "no measurement data" : "");
+        for(MeasureResult measure : resourceUsage.measurements) {
+            result += nf.format(measure.time) + ";" + nf.format(measure.cpuLoad) + ";" + nf.format(measure.memoryUsage);
+        }
+        
+        return result;
 	}
 }

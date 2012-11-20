@@ -8,5 +8,7 @@ public interface Finder {
 	public FinderResult find(InputStream inputText, String searchString);
 	
 	public void setStatusListener(FinderStatusListener listener);
+	
+	public String getAlgorithmName();
 
 }

@@ -53,6 +53,7 @@ public class Benchmarker implements FinderStatusListener {
 		this.inputText = inputText;
 		this.searchString = searchString;
 		this.benchmarkResult = new BenchmarkResult();
+		this.benchmarkResult.algorithm = algorithm.getAlgorithmName();
 	}
 
 	public void report(Reporter reporter) {

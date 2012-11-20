@@ -152,4 +152,9 @@ public class RabinKarpFinder implements Finder {
 		return prime.longValue();
 	}
 
+	@Override
+	public String getAlgorithmName() {
+		return "Rabin-Karp";
+	}
+
 }

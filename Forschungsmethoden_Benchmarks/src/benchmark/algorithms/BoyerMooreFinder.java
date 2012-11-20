@@ -168,4 +168,9 @@ public class BoyerMooreFinder implements Finder{
 		}
 		return len;
 	}
+
+	@Override
+	public String getAlgorithmName() {
+		return "Boyer-Moore";
+	}
 }

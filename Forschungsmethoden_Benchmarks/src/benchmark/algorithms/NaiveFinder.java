@@ -63,4 +63,9 @@ public class NaiveFinder implements Finder {
 	public void setStatusListener(FinderStatusListener listener) {
 		this.statusListener = listener;		
 	}
+
+	@Override
+	public String getAlgorithmName() {
+		return "Java String Implementation";
+	}
 }
