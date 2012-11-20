@@ -28,7 +28,7 @@ public class Benchmarker implements FinderStatusListener {
 		this.algorithm = algorithm;
 		this.algorithm.setStatusListener(this);
 		this.watch = new DefaultSystemStopWatch();
-		this.monitor = new ResourceMonitor();
+		this.monitor = new ResourceMonitor(100);
 	}
 
 	public void run() {
