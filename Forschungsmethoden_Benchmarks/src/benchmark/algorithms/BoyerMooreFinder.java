@@ -11,37 +11,18 @@ import java.io.UnsupportedEncodingException;
  * */
 public class BoyerMooreFinder implements Finder{
 
-	private String needle = null;
-	private int charTable[] = null;
-	private int offsetTable[] = null;
 	private FinderStatusListener listener = null;
-//	private FinderResult result = null;
-//	private int lineNum = 0;
-	BufferedReader reader = null;
 	private final String charset = "UTF-8";
 
 	public BoyerMooreFinder(){}
 
-	public BoyerMooreFinder(String needle){
-		this.needle = needle;
-	}
-
-	public BoyerMooreFinder(InputStream stream, String needle, int it){
-		this.needle = needle;
-		reader = new BufferedReader(new InputStreamReader(stream));
-	}
-
-	private void preprocess(){
-		charTable = makeCharTable();
-		offsetTable = makeOffsetTable();
-	}
-
 	@Override
-	public FinderResult find(InputStream inputText, String searchString) {
+	public FinderResult find(InputStream inputText, String needle) {
 		
 		int lineNum = 0;
 		
 		BufferedReader reader = null;
+		
 		try {
 			reader = new BufferedReader(new InputStreamReader(inputText,charset));
 		} catch (UnsupportedEncodingException e1) {
@@ -50,7 +31,8 @@ public class BoyerMooreFinder implements Finder{
 		String line = "";
 
 		//Part of the algorithm, so has to be repeated for every find()-Call
-		preprocess();
+		int[] charTable = makeCharTable(needle);
+		int[] offsetTable = makeOffsetTable(needle);
 
 		FinderResult result = new FinderResult();
 
@@ -61,9 +43,9 @@ public class BoyerMooreFinder implements Finder{
 				lineNum++;
 
 				//do search run
-				int i = indexOf(line);
+				int i = indexOf(line,needle,charTable, offsetTable);
 
-				if(i > 0){
+				if(i >= 0){
 					listener.searchStringFound(new Position(lineNum,i));
 
 					result.incNumberOfHits();
@@ -71,12 +53,8 @@ public class BoyerMooreFinder implements Finder{
 					result.addHit(new Position(lineNum,i));
 
 				}
-				else if(i == 0){
-					//Input text of length 0
-					return result;
-				}
 				else if(i == -1){
-					//Pattern not found in this line
+					//Pattern not found in this line or line length 0
 				}
 				
 				if(listener != null) {
@@ -108,11 +86,11 @@ public class BoyerMooreFinder implements Finder{
 	 * @param needle The target string to search
 	 * @return The start index of the substring
 	 */
-	public int indexOf(String input) {
+	public int indexOf(String input, String needle, int[] charTable, int[] offsetTable) {
 
 		//preprocess();
 		if (needle.length() == 0) {
-			return 0;
+			return -1;
 		}
 
 		for (int i = needle.length() - 1, j; i < input.length();) {
@@ -124,7 +102,7 @@ public class BoyerMooreFinder implements Finder{
 			// i += needle.length - j; // For naive method
 			i += Math.max(offsetTable[needle.length() - 1 - j], charTable[input.charAt(i)]);
 		}
-		return -1;
+		return -1; // not found
 	}
 
 	/****************************************************
@@ -134,7 +112,7 @@ public class BoyerMooreFinder implements Finder{
 	/**
 	 * Makes the jump table based on the mismatched character information.
 	 */
-	private int[] makeCharTable() {
+	private int[] makeCharTable(String needle) {
 		final int ALPHABET_SIZE = 256;
 		int[] table = new int[ALPHABET_SIZE];
 		for (int i = 0; i < table.length; ++i) {
@@ -149,7 +127,7 @@ public class BoyerMooreFinder implements Finder{
 	/**
 	 * Makes the jump table based on the scan offset which mismatch occurs.
 	 */
-	private int[] makeOffsetTable() {
+	private int[] makeOffsetTable(String needle) {
 		int[] table = new int[needle.length()];
 		int lastPrefixPosition = needle.length();
 		for (int i = needle.length() - 1; i >= 0; --i) {

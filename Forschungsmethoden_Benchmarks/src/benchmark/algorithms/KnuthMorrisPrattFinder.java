@@ -7,44 +7,34 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
 /**
- * Source: http://www.fmi.uni-sofia.bg/fmi/logic/vboutchkova/sources/KMPMatch_java.html
+ * Source: http://algs4.cs.princeton.edu/53substring/KMP.java.html
  * */
 public class KnuthMorrisPrattFinder implements Finder {
 
-	private String pattern = null;
+	private final int R = 256;   // the radix
+
 	private FinderStatusListener listener = null;
-//	private FinderResult result = null;
-	private int[] failure;
-	private BufferedReader reader = null;
-//	private int lineNum = 0;
 	private final String charset = "UTF-8";
 
-	public KnuthMorrisPrattFinder(){}
-
-	public KnuthMorrisPrattFinder(String needle){
-		this.pattern = needle;
-
-		
-	}
-
-	public KnuthMorrisPrattFinder(InputStream stream, String needle){
-		this.pattern = needle;		
-		reader = new BufferedReader(new InputStreamReader(stream));
+	public KnuthMorrisPrattFinder(){	
 	}
 
 	@Override
-	public FinderResult find(InputStream inputText, String searchString) {
+	public FinderResult find(InputStream inputText, String pat) {
 
-		computeFailure();
-		
+		int[][] dfa;       // the KMP automoton
+
 		BufferedReader reader = null;
-		
+
+		dfa = buildDFA(pat);
+
 		try {
 			reader = new BufferedReader(new InputStreamReader(inputText,charset));
 		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();
 		}
 		FinderResult result = new FinderResult();
+
 		String line = "";
 		int lineNum = 0;
 		long progress = 0;
@@ -53,22 +43,19 @@ public class KnuthMorrisPrattFinder implements Finder {
 			while((line = reader.readLine()) != null){
 				lineNum++;
 
-				int i = this.match(line);
+				int i = this.search(line, pat, dfa);
 
-				if(i > 0){
+				if(i >= 0){
 					listener.searchStringFound(new Position(lineNum,i));
 
 					result.incNumberOfHits();
 					result.found |= true;
 					result.addHit(new Position(lineNum,i));
 				}
-				else if(i == 0){
-					//Input text of length 0
-				}
 				else if(i == -1){
 					//Pattern not found
 				}
-				
+
 				if(listener != null) {
 					listener.searchStringFound(new Position(lineNum,i));
 					progress += line.getBytes(charset).length;
@@ -87,53 +74,40 @@ public class KnuthMorrisPrattFinder implements Finder {
 		this.listener = listener;
 	}
 
-
 	/**************************
 	 * Specific Algorithm	 * 
 	 **************************/
 
-	/**
-	 * Finds the first occurrence of the pattern in the text.
-	 */
-	public int match(String line) {	  
-		//computeFailure
-		int j = 0;
-		int x = 0;
+	// return offset of first match; N if no match
+	public int search(String txt, String pat, int[][] dfa) {
 
-		if (line.length() == 0) 
-			return -1;
-
-		for (int i = 0; i < line.length(); i++) {
-			while (j > 0 && pattern.charAt(j) != line.charAt(i)) {
-				j = failure[j - 1];
-			}
-			if (pattern.charAt(j) == line.charAt(i)) { j++; }
-			if (j == pattern.length()) {
-				x = i - pattern.length() + 1;
-				return x;
-			}
+		// simulate operation of DFA on text
+		int M = pat.length();
+		int N = txt.length();
+		int i, j;
+		for (i = 0, j = 0; i < N && j < M; i++) {
+			j = dfa[txt.charAt(i)][j];
 		}
-		return -1;
+		if (j == M) 
+			return i - M;    // found
+		return -1;                    // not found
 	}
 
-	/******************
-	 * PREPROCESSING  * 
-	 * ****************/
+	private int[][] buildDFA(String pat) {
 
-	/** 
-	 * Computes the failure function using a boot-strapping process,
-	 * where the pattern is matched against itself.
-	 */
-	private void computeFailure() {
-		int j = 0;
-		for (int i = 1; i < pattern.length(); i++) {
-			while (j > 0 && pattern.charAt(j) != pattern.charAt(i)) { 
-				j = failure[j - 1];
-			}
-			if (pattern.charAt(j) == pattern.charAt(i)) { 
-				j++; 
-			}
-			failure[i] = j;
+		int[][] dfa = null;
+		
+		// build DFA from pattern
+		int M = pat.length();
+		dfa = new int[R][M]; 
+		dfa[pat.charAt(0)][0] = 1; 
+		for (int X = 0, j = 1; j < M; j++) {
+			for (int c = 0; c < R; c++) 
+				dfa[c][j] = dfa[c][X];     // Copy mismatch cases. 
+			dfa[pat.charAt(j)][j] = j+1;   // Set match case. 
+			X = dfa[pat.charAt(j)][X];     // Update restart state. 
 		}
+		return dfa;
 	}
+
 }
