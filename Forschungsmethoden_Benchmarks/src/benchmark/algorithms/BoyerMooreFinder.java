@@ -46,19 +46,21 @@ public class BoyerMooreFinder implements Finder{
 				int i = indexOf(line,needle,charTable, offsetTable);
 
 				if(i >= 0){
-					listener.searchStringFound(new Position(lineNum,i));
-
+					Position hitPosition = new Position(lineNum,i+1);
+					
 					result.incNumberOfHits();
 					result.found |= true;
-					result.addHit(new Position(lineNum,i));
+					result.addHit(hitPosition);
 
+					if(listener!=null) {
+						listener.searchStringFound(hitPosition);
+					}
 				}
 				else if(i == -1){
 					//Pattern not found in this line or line length 0
 				}
 				
 				if(listener != null) {
-					listener.searchStringFound(new Position(lineNum,i));
 					progress += line.getBytes(charset).length;
 					listener.progressUpdate(progress);
 				}
