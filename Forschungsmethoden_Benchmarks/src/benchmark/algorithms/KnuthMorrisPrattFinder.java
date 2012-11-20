@@ -46,18 +46,21 @@ public class KnuthMorrisPrattFinder implements Finder {
 				int i = this.search(line, pat, dfa);
 
 				if(i >= 0){
-					listener.searchStringFound(new Position(lineNum,i));
+					Position hitPosition = new Position(lineNum,i+1);
 
 					result.incNumberOfHits();
 					result.found |= true;
-					result.addHit(new Position(lineNum,i));
+					result.addHit(hitPosition);
+					
+					if(listener != null) {
+						listener.searchStringFound(hitPosition);
+					}
 				}
 				else if(i == -1){
 					//Pattern not found
 				}
 
 				if(listener != null) {
-					listener.searchStringFound(new Position(lineNum,i));
 					progress += line.getBytes(charset).length;
 					listener.progressUpdate(progress);
 				}
