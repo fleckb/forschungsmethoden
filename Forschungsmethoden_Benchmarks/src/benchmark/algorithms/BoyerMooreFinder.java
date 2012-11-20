@@ -11,21 +11,27 @@ import java.io.UnsupportedEncodingException;
  * */
 public class BoyerMooreFinder implements Finder{
 
+	// BF: Die 3 Attribute würde ich löschen und über Methodenparameter übergeben.
 	private String needle = null;
 	private int charTable[] = null;
 	private int offsetTable[] = null;
+	
 	private FinderStatusListener listener = null;
 //	private FinderResult result = null;
 //	private int lineNum = 0;
+	
+	// BF: Den reader brauchen wir hier auch nicht mehr oder?
 	BufferedReader reader = null;
 	private final String charset = "UTF-8";
 
 	public BoyerMooreFinder(){}
 
+	// BF: Den Constructor würde ich löschen
 	public BoyerMooreFinder(String needle){
 		this.needle = needle;
 	}
 
+	// BF: Den Constructor würde ich löschen
 	public BoyerMooreFinder(InputStream stream, String needle, int it){
 		this.needle = needle;
 		reader = new BufferedReader(new InputStreamReader(stream));
@@ -50,6 +56,7 @@ public class BoyerMooreFinder implements Finder{
 		String line = "";
 
 		//Part of the algorithm, so has to be repeated for every find()-Call
+		//BF: Sollte das nicht mit searchString aufgerufen werden?
 		preprocess();
 
 		FinderResult result = new FinderResult();
@@ -80,6 +87,7 @@ public class BoyerMooreFinder implements Finder{
 				}
 				
 				if(listener != null) {
+					// BF: Das wird ja in jeder Zeile aufgerufen - Kann das so stimmen?
 					listener.searchStringFound(new Position(lineNum,i));
 					progress += line.getBytes(charset).length;
 					listener.progressUpdate(progress);
