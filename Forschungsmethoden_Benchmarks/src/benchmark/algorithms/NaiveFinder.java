@@ -50,6 +50,7 @@ public class NaiveFinder implements Finder {
 					}
 				}				
 				line = reader.readLine();
+				currentLinePosition++;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
