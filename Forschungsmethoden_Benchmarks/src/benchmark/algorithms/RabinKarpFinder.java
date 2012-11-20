@@ -28,20 +28,13 @@ public class RabinKarpFinder implements Finder {
 
 	public RabinKarpFinder(){}
 
-	public RabinKarpFinder(String needle){
-		this.pattern = needle;
-	}
-
-	public RabinKarpFinder(InputStream stream, String pat){
-		this.pattern = pat;
-
-		//reader = new BufferedReader(new InputStreamReader(stream));
+	private void preprocess(String pattern) {
+		this.pattern = pattern;
+		
 		R = 256;
-		M = pat.length();
+		M = pattern.length();
 		Q = longRandomPrime();
-	}
-
-	private void preprocess(){	
+		
 		// precompute R^(M-1) % Q for use in removing leading digit
 		RM = 1;
 		for (int i = 1; i <= M-1; i++)
@@ -66,24 +59,28 @@ public class RabinKarpFinder implements Finder {
 
 		FinderResult result = new FinderResult();
 
-		preprocess();	
+		preprocess(searchString);	
 
 		try {
 			while((line = reader.readLine()) != null){
-				int i = 0;
+				lineNum++;
+				int i = this.search(line);
 
 				if(i >= 0){
-					listener.searchStringFound(new Position(lineNum,i));
-
+					Position hitPosition = new Position(lineNum,i+1);
+					
 					result.incNumberOfHits();
 					result.found |= true;
-					result.addHit(new Position(lineNum,i));		
+					result.addHit(hitPosition);	
+					
+					if(listener != null) {
+						listener.searchStringFound(hitPosition);
+					}
 				}
 				else if(i == -1){
 					//Pattern not found
 				}
 				if(listener != null) {
-					listener.searchStringFound(new Position(lineNum,i));
 					progress += line.getBytes(charset).length;
 					listener.progressUpdate(progress);
 				}
