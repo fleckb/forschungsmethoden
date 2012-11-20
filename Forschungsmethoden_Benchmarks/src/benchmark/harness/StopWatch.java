@@ -23,6 +23,8 @@ public abstract class StopWatch {
 	 */
 	public abstract long stop();
 	
+	public abstract StopWatch copy();
+	
 	
 	public static float nanoToMilliseconds(long nanoseconds) {
 		return (float)nanoseconds / ONE_MILLION;
