@@ -44,7 +44,6 @@ public class ResourceMonitorTest {
 		//generateMemoryUsage(MEMORY_USAGE_10_MB_IN_BYTES);
 		generateMemoryUsage(MEMORY_USAGE_IN_BYTE);
 		ResourceUsage result = monitor.stop();
-		System.out.println(result.peakMemoryUsed);
 		assertTrue("Peak memory used greater than 9MB ", result.peakMemoryUsed > MEMORY_USAGE_IN_MB);
 	}
 	
