@@ -28,10 +28,10 @@ public class Benchmarker implements FinderStatusListener {
 		this.algorithm = algorithm;
 		this.algorithm.setStatusListener(this);
 		this.watch = new DefaultSystemStopWatch();
-		this.monitor = new ResourceMonitor(100);
+		this.monitor = new ResourceMonitor(25);
 	}
 
-	public void run() {
+	public BenchmarkResult run() {
 		
 		watch.start();
 		monitor.start();
@@ -47,6 +47,8 @@ public class Benchmarker implements FinderStatusListener {
 		benchmarkResult.found = result.isFound();
 		// number of hits
 		benchmarkResult.numberOfHits = result.numberOfHits;
+		
+		return benchmarkResult;
 	}
 
 	public void prepare(InputStream inputText, String searchString) {

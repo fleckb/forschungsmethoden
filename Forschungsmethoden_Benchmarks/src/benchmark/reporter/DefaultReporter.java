@@ -17,9 +17,9 @@ public class DefaultReporter implements Reporter {
 	}
 		
 	@Override
-	public void report(BenchmarkResult result) {
+	public void report(BenchmarkResult... results) {
 		try {
-			out.write(result.toString());
+			out.write(BenchmarkResult.accumulate(results));
 			out.flush();
 		} catch (IOException e) {
 			e.printStackTrace();

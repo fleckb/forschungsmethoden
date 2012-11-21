@@ -3,7 +3,6 @@ package test.benchmark;
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
 
 import org.junit.After;
 import org.junit.Before;
