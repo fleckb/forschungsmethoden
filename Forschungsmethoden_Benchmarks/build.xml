@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="benchmark" basedir="." default="build">
+	<property environment="env" />
+	
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="test.dir" value="${basedir}/test" />
+	<property name="build.dir" value="${basedir}/bin" />
+	<property name="lib.dir" value="${basedir}/lib" />
+
+	<path id="lib.path">
+		<fileset dir="${lib.dir}" includes="*.jar"/>
+	</path>
+		
+	<target name="clean" description="Cleans the build directory.">
+		<delete dir="${build.dir}" quiet="true" />
+	</target>
+	
+	<target name="compile">
+		<mkdir dir="${build.dir}" />
+		
+		<javac destdir="${build.dir}"
+			srcdir="${src.dir}"
+			classpathref="lib.path">
+			<src path="${test.dir}" />
+		</javac>
+	</target>
+		
+	<target name="test" description="Run the tests" 
+		    	depends="compile" >
+		<property name="test.reports.dir" location="${build.dir}/testreports"/>
+		<mkdir dir="${test.reports.dir}"/>
+		<junit printsummary="no">
+			<batchtest todir="${test.reports.dir}" haltonfailure="true" haltonerror="true">
+				<formatter type="plain" usefile="false"/>
+				<formatter type="plain" />
+				<fileset dir="${test.dir}" includes="**/*Test.java" />
+			</batchtest>
+			<classpath>
+				<path refid="lib.path" />
+				<path location="${build.dir}" />
+			</classpath>
+		</junit>
+	</target>
+	
+	<target name="build" description="Clean, build and test"
+		depends="clean, test">
+	</target>
+	
+	<target name="jar" depends="clean, compile" >
+		<jar destfile="${build.dir}/benchmark.jar" >
+		    <fileset dir="${build.dir}"/>
+			<zipgroupfileset dir="lib" includes="*.jar" /> 
+		  </jar>
+	</target>
+</project>
