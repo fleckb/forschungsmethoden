@@ -100,5 +100,4 @@ public class BenchmarkerTest {
 		benchmark.run();
 		benchmark.report(new CsvReporter("testrun"));
 	}
-
 }

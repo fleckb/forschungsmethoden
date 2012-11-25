@@ -14,6 +14,7 @@ import benchmark.algorithms.RabinKarpFinder;
 import benchmark.harness.BenchmarkResult;
 import benchmark.harness.Benchmarker;
 import benchmark.reporter.CsvReporter;
+import benchmark.reporter.DefaultReporter;
 import benchmark.reporter.Reporter;
 
 public class Tester {
@@ -92,7 +93,8 @@ public class Tester {
 	@SuppressWarnings("static-access")
 	private void benchmarkAndReport(Benchmarker benchmark, int iterations, String file, String search, String report) {
 		List<BenchmarkResult> results = new ArrayList<BenchmarkResult>();
-		Reporter reporter = new CsvReporter(report);
+		//Reporter reporter = new CsvReporter(report);
+		Reporter reporter = new DefaultReporter();
 		
 		for(int i=0; i<iterations; i++) {
 			InputStream textFile = this.getClass().getClassLoader().getSystemResourceAsStream(file);
