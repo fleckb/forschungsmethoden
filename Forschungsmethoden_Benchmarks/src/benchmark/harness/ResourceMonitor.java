@@ -44,8 +44,8 @@ public class ResourceMonitor {
 		for(MemoryPoolMXBean memoryPool : ManagementFactory.getMemoryPoolMXBeans()) {
 			memoryPool.resetPeakUsage();
 		}		
-		startCpuTime = threadBean.getCurrentThreadCpuTime();
 		watch.start();
+		startCpuTime = threadBean.getCurrentThreadCpuTime();
 		
 		monitor = new MonitorThread(Thread.currentThread().getId());
 		monitorHandle = executor.scheduleAtFixedRate(
@@ -69,6 +69,9 @@ public class ResourceMonitor {
 		
 		ResourceUsage usage = new ResourceUsage();
 		usage.averageCpuUsage = (float)cpuTime / (float)duration;
+		if(usage.averageCpuUsage>1) {
+			usage.averageCpuUsage = 1;
+		}
 		usage.peakMemoryUsed = peakMemoryUsed;
 		usage.measurements = monitor.getMeasurements();
 		return usage;
