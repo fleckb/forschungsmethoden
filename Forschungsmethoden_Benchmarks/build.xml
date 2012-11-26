@@ -48,6 +48,9 @@
 	
 	<target name="jar" depends="clean, compile" >
 		<jar destfile="${build.dir}/benchmark.jar" >
+			<manifest>
+				<attribute name="Main-Class" value="benchmark.Tester"/>
+			</manifest>
 		    <fileset dir="${build.dir}"/>
 			<zipgroupfileset dir="lib" includes="*.jar" /> 
 		  </jar>
