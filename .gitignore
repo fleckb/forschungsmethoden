@@ -31,3 +31,4 @@ report.run.xml
 *.sublime-project
 build.cmd
 *.class
+*.run.xml
