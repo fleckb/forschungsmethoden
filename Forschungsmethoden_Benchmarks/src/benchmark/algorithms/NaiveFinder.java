@@ -33,11 +33,13 @@ public class NaiveFinder implements Finder {
 		try {
 			int currentLinePosition = 1;
 			long bytesRead = 0;
+			int column = 0;
+			int fromIndex;
 			String line = reader.readLine();
 			while(line != null) {
-				int column = line.indexOf(searchString);
-				
-				if(column != -1) {
+				fromIndex = 0;
+				column = line.indexOf(searchString, fromIndex);
+				while(column != -1) {
 					Position hitPosition = new Position(currentLinePosition, column+1);
 					result.found = true;
 					result.hits.add(hitPosition);
@@ -45,10 +47,16 @@ public class NaiveFinder implements Finder {
 					
 					if(statusListener != null) {
 						statusListener.searchStringFound(hitPosition);
-						bytesRead += line.getBytes(charset).length;
-						statusListener.progressUpdate(bytesRead);
 					}
-				}				
+					
+					fromIndex = column+1;
+					column = line.indexOf(searchString, fromIndex);
+				}
+				if(statusListener != null) {
+					bytesRead += line.getBytes(charset).length;
+					statusListener.progressUpdate(bytesRead);
+				}
+												
 				line = reader.readLine();
 				currentLinePosition++;
 			}
