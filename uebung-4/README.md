@@ -94,8 +94,8 @@ Stephan: 1, 2, 3, 4, 5, 6, 7
       1. 
       2. 
    5. Exertion Interfaces: Neue Generation von Anwendungen
-      1. 
-      2. 
+      1. Exertion Interfaces dienen der Steuerung von Anwendungen über Bewegungen 
+      2. Körperliche Anstrengung spielt ausschließlich bei den als <em>Sports over a Distance</em> entwickelten Systemen eine Rolle
    6. Location Awareness
       1. Wie viel verwenden Sie derartige Standortinformationen, wie freizügig sind Sie damit? Sehr viel (1) ... gar nicht (5)
       2. Und evtl: Nach diesem Text, werden Sie etwas an Ihrer Nutzweise ändern? Mehr nutzen bis weniger nutzen oder so
