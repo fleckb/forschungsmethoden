@@ -88,8 +88,7 @@ Stephan: 1, 2, 3, 4, 5, 6, 7
       4. Mir sind auch nicht wirklich mehr oder bessere "technische Fragen" eingefallen die man auf Basis des Artikels stellen könnte.
       5. Zu den Fragen: 1: Die Frage resultiert daraus, dass hier nicht wirklich hervorgeht, ob die vorgestellten "Systeme" tatsächlich Systeme sind oder nicht.
       6. ZigBee ist zb lt Artikel ein high-level protocol welche auf dem IEEE 802.15.4 basiert wo dagegen DASH7 als Sensornetzwerkstandard beschrieben wird.
-      7. Zu2: Im Artikel wird vor allem in der Conclusion eher auf das DUST eingegangen, welches hier zwar nicht als die ultmaitve Lösung angesehen werden soll -
-      8. deswegen die Frage nach DASH7 statt DUST ;)
+      7. Zu2: Im Artikel wird vor allem in der Conclusion eher auf das DUST eingegangenen- deswegen die Frage nach DASH7 statt DUST ;)
    2. Internet Security
       1. Würden Sie sagen, dass das Risiko für Viren und Malware mit der Wahl des Browser zusammenhängt? (1)trifft zu.....(5)trifft nicht zu
       2. Würden Sie Ihren Freunden/Bekannten dazu raten sich einen guten Virenscanner zu kaufen? (1)trifft zu ....(5)trifft gar nicht zu
