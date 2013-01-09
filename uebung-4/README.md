@@ -82,8 +82,14 @@ Stephan: 1, 2, 3, 4, 5, 6, 7
 **Fragen zum Inhalt**
 
    1. Wireless Sensor Networks - Executive Summary
-      1. 
-      2. 
+      1. Würden Sie ZigBee, DUST und DASH7 als so etwas wie ein Bausatz ansehen? (1)trifft zu...(5) trifft nicht zu
+      2. Nach dem lesen des Artikels-hat DASH7 Ihrer Meinung nach das Beste Energieeffizienz/ Ausfallsicherheit - Verhältnis? (1) trifft zu...(5)trifft nicht zu
+      3. (nur zur Info: ich finde der Artikel ist weit vom Paper entfernt und erläutert das Thema bzw. die Problematik hinter dem Thema nur ansatzweise/unzureichend.
+      4. Mir sind auch nicht wirklich mehr oder bessere "technische Fragen" eingefallen die man auf Basis des Artikels stellen könnte.
+      5. Zu den Fragen: 1: Die Frage resultiert daraus, dass hier nicht wirklich hervorgeht, ob die vorgestellten "Systeme" tatsächlich Systeme sind oder nicht.
+      6. ZigBee ist zb lt Artikel ein high-level protocol welche auf dem IEEE 802.15.4 basiert wo dagegen DASH7 als Sensornetzwerkstandard beschrieben wird.
+      7. Zu2: Im Artikel wird vor allem in der Conclusion eher auf das DUST eingegangen, welches hier zwar nicht als die ultmaitve Lösung angesehen werden soll -
+      8. deswegen die Frage nach DASH7 statt DUST ;)
    2. Internet Security
       1. 
       2. 
