@@ -70,14 +70,14 @@ Stephan: 1, 2, 3, 4, 5, 6, 7
 
 **Meta Bewertung**
 
-   1. Wie gut hat Ihnen der Artikel gefallen? Sehr gut (1) ... Gar nicht (5)
-   2. Wie gut haben Sie ihn verstanden? Sehr gut (1) ... Gar nicht (5)
-   3. Wie viele unerklärte Begriffe enthält der Artikel? Gar keine (1) ... Sehr viele (5)
-   4. Für wie nützlich halten Sie den Artikel? Sehr nützlich (1) ... Gar nicht nützlich (5)
-   5. Wie gut haben Sie den USP (unique selling point) verstanden? Sehr gut verstanden (1) ... Gar nicht verstanden (5)
-   6. Wie gut ist der Artikel geschrieben? Sehr gut (1) ... Sehr schlecht (5)
-   7. Wie groß ist ihr Interesse an diesem Thema? Großes Interesse (1) ... Kein Interesse (5)
-   8. Wie gut wird die Problemstellung dargelegt? Sehr gut (1) ... Gar nicht gut (5)
+   - Der Artikel hat mir gut gefallen
+   - Der Artikel ist gut verständlich
+   - Der Artikel enthält viele unerklärte Begriffe
+   - Der Artikel ist nützlich
+   - Der Unique Selling Point wurde gut dargelegt
+   - Der Artikel ist gut geschrieben
+   - Das Thema des Artikels ist interessant
+   - Die Problemstellung wird gut dargelegt
 
 **Fragen zum Inhalt**
 
@@ -91,14 +91,14 @@ Stephan: 1, 2, 3, 4, 5, 6, 7
       1. Wie ist der Stand der Forschung zu diesem Thema laut Artikel? Sehr weit (1) ... Am Anfang (5)
       2. Wie sozial / wie viel Interaktion müssen soziale Roboter im Umfeld von alten Menschen haben? Viel (1) ... Gar nicht/keine (5)
    4. Verwendung von statischer Code-Analyse zur Vermeidung von Sicherheitslücken in Software
-      1. 
-      2. 
+      1. Statische Code-Anal-se überprüft Programme während der Ausführung
+      2. Statische Code-Analyse hilft alle Sicherheitslücken zu finden
    5. Exertion Interfaces: Neue Generation von Anwendungen
       1. Exertion Interfaces dienen der Steuerung von Anwendungen über Bewegungen 
       2. Körperliche Anstrengung spielt ausschließlich bei den als <em>Sports over a Distance</em> entwickelten Systemen eine Rolle
    6. Location Awareness
-      1. Wie viel verwenden Sie derartige Standortinformationen, wie freizügig sind Sie damit? Sehr viel (1) ... gar nicht (5)
-      2. Und evtl: Nach diesem Text, werden Sie etwas an Ihrer Nutzweise ändern? Mehr nutzen bis weniger nutzen oder so
+      1. Standortinformationen werden häufig verwendet
+      2. Standortinformationen können bedenkenlos veröffentlicht werden
    7. Sicherheitsanforderungen in Netzwerken
       1. Wussten Sie vor diesem Text, dass Skype unter anderem als P2P klassifiziert sein kann wie z.B. auch Napster etc.? (Eher) ja -> (Eher) nein
       2. 
