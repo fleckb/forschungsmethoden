@@ -26,9 +26,12 @@ public class NaiveFinderTest {
 	
 	private Finder finder;
 	
-	private final String text = "This is a test for a simple search!\nForm follows simple function.";
+	private final String text = "This is a test for a simple search!\n" +
+								"Form follows simple function.\n" +
+								"Multiple word s on one line, word!";
 	private final String search1 = "for";
 	private final String search2 = "simple";
+	private final String search3 = "word";
 	
 	private final Mockery context = new Mockery();
 
@@ -95,6 +98,15 @@ public class NaiveFinderTest {
 		FinderResult result = finder.find(inputText, search2);
 		
 		assertEquals("Size of hits list", 2, result.hits.size());
+	}
+	
+	@Test
+	public void testMultipleHitsInOneLine() throws Exception {
+		ByteArrayInputStream inputText = new ByteArrayInputStream(text.getBytes("UTF-8"));
+		
+		FinderResult result = finder.find(inputText, search3);
+		
+		assertEquals("Number of hits in one line", 2, result.numberOfHits);
 	}
 
 }

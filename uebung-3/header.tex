@@ -1,12 +1,12 @@
 \documentclass[%
 paper=a4,						% alle weiteren Papierformat einstellbar
 %landscape,						% Querformat
-fontsize=11pt,					% Schriftgröße (12pt, 11pt (Standard))
+fontsize=10pt,					% Schriftgröße (12pt, 11pt (Standard))
 %BCOR1cm,						% Bindekorrektur, bspw. 1 cm
 DIV=calc,						% führt die Satzspiegelberechnung neu aus
 								% s. scrguide 2.4
 %twoside,						% Doppelseiten
-%twocolumn,						% zweispaltiger Satz
+twocolumn,						% zweispaltiger Satz
 parskip=half,					% Absatzformatierung s. scrguide 3.1
 %headsepline,					% Trennline zum Seitenkopf	
 %footsepline,					% Trennline zum Seitenfuß
@@ -50,6 +50,8 @@ bibliography=totoc,				% Literaturverzeichnis im Inhalt
 
 \usepackage{mdwlist}
 \usepackage{csquotes}
+
+\newcommand{\zitat}[1]{\emph{\enquote{#1}}}
 
 % Neues bibliographie paket
 % style=apa

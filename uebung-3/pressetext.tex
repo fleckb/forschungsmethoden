@@ -1,0 +1,98 @@
+\documentclass[%
+paper=a4,                       % alle weiteren Papierformat einstellbar
+%landscape,                     % Querformat
+fontsize=11pt,                  % Schriftgröße (12pt, 11pt (Standard))
+%BCOR1cm,                       % Bindekorrektur, bspw. 1 cm
+DIV=calc,                       % führt die Satzspiegelberechnung neu aus
+                                % s. scrguide 2.4
+%twoside,                       % Doppelseiten
+%twocolumn,                     % zweispaltiger Satz
+parskip=half,                   % Absatzformatierung s. scrguide 3.1
+%headsepline,                   % Trennline zum Seitenkopf  
+%footsepline,                   % Trennline zum Seitenfuß
+%titlepage,                     % Titelei auf eigener Seite
+headings=big,               % Überschriften etwas kleiner (smallheadings)
+%idxtotoc,                      % Index im Inhaltsverzeichnis
+%liststotoc,                    % Abb.- und Tab.verzeichnis im Inhalt
+bibliography=totoc,             % Literaturverzeichnis im Inhalt
+%abstracton,                    % Überschrift über der Zusammenfassungan    
+%leqno,                         % Nummerierung von Gleichungen links
+%fleqn,                         % Ausgabe von Gleichungen linksbündig
+%draft                          % überlangen Zeilen in Ausgabe gekennzeichnet
+]
+{scrartcl}
+
+\usepackage[pdftex]{graphicx} 
+\usepackage[english]{babel} 
+\usepackage[utf8]{inputenc}     
+\usepackage[T1]{fontenc}                                
+\usepackage{lmodern}
+\usepackage{color}
+
+% Links im PDF
+\usepackage{hyperref}
+\definecolor{LinkColor}{rgb}{0,0,0.5}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=LinkColor,
+    citecolor=LinkColor,
+    filecolor=LinkColor,
+    menucolor=LinkColor,
+    urlcolor=LinkColor}
+    
+%Kopf u. Fußzeilen
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+%\chead{}
+%\ofoot{}
+\cfoot{\pagemark}
+
+\usepackage{mdwlist}
+\usepackage{csquotes}
+
+\newcommand{\zitat}[1]{\emph{\enquote{#1}}}
+
+% Neues bibliographie paket
+% style=apa
+\usepackage[isbn=false,url=false, doi=false, backend=biber, style=numeric]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+
+\KOMAoptions{DIV=last}
+
+
+\begin{document} 
+
+\section*{Agile Softwareentwicklungsmethoden im Vormarsch}
+
+\subsection*{Schnell -- Flexibel -- Kreativ -- Innovativ:  Eigenschaften eines
+modernen Softwareentwicklers um am Markt ganz vorn dabei zu sein}
+
+Um innovative Produkte entwickeln und gleichzeitig auf Veränderungen des
+Marktes und auf Kundenwünsche schnell reagieren zu können bedarf es den
+Einsatz agiler Softwareentwicklungsmethoden. Vorteil dieser Methoden im
+Gegensatz zu traditionellen schwergewichtigen Methoden ist, dass sie kurze
+Entwicklungszyklen beinhalten ohne jedoch die wichtigen Phasen wie Planung,
+Analyse, Umsetzung und Test zu vernachlässigen. Darüber hinaus sind die
+Entwicklungsteams bei dieser Methode eher klein (5--9 Mitglieder),
+selbstorganisiert, jedes Mitglied in allen Bereichen mit eingebunden und die
+Kommunikation erfolgt direkt, sodass eine lange aufwändige Dokumentation
+obsolet wird. Wird ein Zyklus beendet, wird das Produkt den Stakeholdern zur
+Diskussion vorgelegt um erfolgreich weitere Entwicklungsprozesse einzuleiten.
+Prominente Beispiele für agile Ansätze sind: \emph{Extreme Programming} und
+\emph{Scrum}. Bei beiden Methoden liegen die Hauptaugenmerke in der der
+direkten Kooperation zwischen Manager, Klienten und Entwicklern. Kurze
+Entwicklungszyklen, inkrementelle Planung, kontinuierliches Feedback,
+Kommunikation und evolutionäres Design zeichnen diese Prozesse aus. Der
+Austausch von Wissen und Errungenschaften steht dabei ebenso im Vordergrund um
+einen optimierten, schnellen und effizienten Prozess zu ermöglichen.
+
+Eines ist klar, um in Zukunft den schnell wechselnden Anforderungen am
+Softwaremarkt gewachsen zu sein, ist die Anwendung des agilen Ansatzes
+unerlässlich.
+
+Aber wenn man ehrlich ist, ist es doch schön Mitglied eines kleinen kreativen
+Softwareteams zu sein um innovativ Ideen vorantreiben zu können anstatt sich
+dauernd durch Dokumentationen zu quälen.
+
+\end{document}
