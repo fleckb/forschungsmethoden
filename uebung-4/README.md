@@ -91,8 +91,8 @@ Stephan: 1, 2, 3, 4, 5, 6, 7
       7. Zu2: Im Artikel wird vor allem in der Conclusion eher auf das DUST eingegangen, welches hier zwar nicht als die ultmaitve Lösung angesehen werden soll -
       8. deswegen die Frage nach DASH7 statt DUST ;)
    2. Internet Security
-      1. 
-      2. 
+      1. Würden Sie sagen, dass das Risiko für Viren und Malware mit der Wahl des Browser zusammenhängt? (1)trifft zu.....(5)trifft nicht zu
+      2. Würden Sie Ihren Freunden/Bekannten dazu raten sich einen guten Virenscanner zu kaufen? (1)trifft zu ....(5)trifft gar nicht zu
    3. Soziale Roboter
       1. Wie ist der Stand der Forschung zu diesem Thema laut Artikel? Sehr weit (1) ... Am Anfang (5)
       2. Wie sozial / wie viel Interaktion müssen soziale Roboter im Umfeld von alten Menschen haben? Viel (1) ... Gar nicht/keine (5)
