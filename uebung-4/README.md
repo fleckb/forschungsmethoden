@@ -106,7 +106,7 @@ Stephan: 1, 2, 3, 4, 5, 6, 7
       2. Standortinformationen können bedenkenlos veröffentlicht werden
    7. Sicherheitsanforderungen in Netzwerken
       1. Wussten Sie vor diesem Text, dass Skype unter anderem als P2P klassifiziert sein kann wie z.B. auch Napster etc.? (Eher) ja -> (Eher) nein
-      2. 
+      2. Würden Sie sagen, dass Sie, nach dem Lesen des Textes, die Probleme und Vorteile eines P2P-Netzwerkes verstanden haben? (1)trifft zu ... (5) trifft gar nicht zu
    8. _Agile Softwareentwicklungsmethoden im Vormarsch_
    9. Programmierparadigmen
       1. Ist Ihnen der Unterschied zwischen Klasse und Objekt in OOP klar? Ja, eher, nein,... (wird imo nämlich nicht klar im Artikel und zu Beginn des Studiums hatte ich damit selbst kurz Verständnisprobleme, daher wärs interessant)
