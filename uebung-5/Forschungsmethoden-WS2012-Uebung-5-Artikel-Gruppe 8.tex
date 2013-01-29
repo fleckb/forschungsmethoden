@@ -12,6 +12,8 @@
 % These packages are optional, depending whether you want the features they provide.
 % See the LaTeX Companion or other references for full information.
 
+\usepackage{lmodern}
+
 %%% PAGE DIMENSIONS
 \usepackage{geometry} % to change the page dimensions
 \geometry{a4paper} % or letterpaper (US) or a5paper or....
@@ -65,24 +67,26 @@
 
 \begin{table}[!ht]
    \begin{center}
-	\begin{tabular}{ m{5cm}  c  m{5cm} }
-	\textbf{Was haben wir gelernt?} & \textbf{Wobei?} & \textbf{Wieviel haben wir davon profitiert? 0\% - 100\%}\\
-
-	\centering Literatur Recherche & bla & 0\%\\\hline
-
-	\centering Literatur Zitieren & bla &0\%\\\hline
-
-	\centering Implementieren & bla & 0\%\\\hline
-
-	\centering Benchmarking & bla & 0\%\\\hline
-
-	\centering Interviews, Befragungen & bla & 0\%\\\hline
-
-	\centering Technisches allgemeinverständlich darstellen & bla & 0\%\\\hline
-
-	\centering Schreiben eines Technical Paper & bla & 0\%\\\hline
-
-	\centering Präsentationstechnik & bla & 0\%\\\hline
+	\begin{tabular}{p{6cm}lm{3cm}}
+    \toprule
+	\textbf{Was haben wir gelernt?} & \textbf{Wobei?} & \textbf{Wieviel haben wir davon profitiert? 0\%~--~100\%} \tabularnewline
+    \midrule
+	 Literatur Recherche & Übung 1 & 0\% \tabularnewline
+     \addlinespace
+ 	 Literatur Zitieren & Übung 1 und Übung 3 &0\% \tabularnewline
+     \addlinespace
+	 Implementieren & Übung 2 & 0\% \tabularnewline
+     \addlinespace
+	 Benchmarking & Übung 2 & 0\% \tabularnewline
+     \addlinespace
+	 Interviews, Befragungen & Übung 4 & 0\% \tabularnewline
+     \addlinespace
+	 Technisches all\-ge\-mein\-ver\-ständ\-lich darstellen & Übung 3 & 0\% \tabularnewline
+     \addlinespace
+	 Schreiben eines Technical Paper & Übung 3 & 0\% \tabularnewline
+     \addlinespace
+	 Präsentationstechnik & Übung 1 und Übung 4 & 0\% \tabularnewline
+     \bottomrule
 	\end{tabular}
    \end{center}
 \end{table}
