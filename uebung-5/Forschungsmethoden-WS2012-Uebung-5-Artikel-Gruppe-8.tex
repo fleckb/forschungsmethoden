@@ -1,0 +1,132 @@
+\documentclass[%
+paper=a4,                       % alle weiteren Papierformat einstellbar
+%landscape,                     % Querformat
+fontsize=11pt,                  % Schriftgröße (12pt, 11pt (Standard))
+%BCOR1cm,                       % Bindekorrektur, bspw. 1 cm
+DIV=calc,                       % führt die Satzspiegelberechnung neu aus
+                                % s. scrguide 2.4
+%twoside,                       % Doppelseiten
+%twocolumn,                     % zweispaltiger Satz
+parskip=half,                   % Absatzformatierung s. scrguide 3.1
+%headsepline,                   % Trennline zum Seitenkopf  
+%footsepline,                   % Trennline zum Seitenfuß
+titlepage,                      % Titelei auf eigener Seite
+headings=big,               % Überschriften etwas kleiner (smallheadings)
+%idxtotoc,                      % Index im Inhaltsverzeichnis
+%liststotoc,                    % Abb.- und Tab.verzeichnis im Inhalt
+bibliography=totoc,             % Literaturverzeichnis im Inhalt
+%abstracton,                    % Überschrift über der Zusammenfassungan    
+%leqno,                         % Nummerierung von Gleichungen links
+%fleqn,                         % Ausgabe von Gleichungen linksbündig
+%draft                          % überlangen Zeilen in Ausgabe gekennzeichnet
+]
+{scrartcl}
+
+\usepackage[pdftex]{graphicx} 
+\usepackage[ngerman]{babel} 
+\usepackage[utf8]{inputenc}     
+\usepackage[T1]{fontenc}                                
+\usepackage{lmodern}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{array}
+
+% Links im PDF
+\usepackage{hyperref}
+\definecolor{LinkColor}{rgb}{0,0,0.5}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=LinkColor,
+    citecolor=LinkColor,
+    filecolor=LinkColor,
+    menucolor=LinkColor,
+    urlcolor=LinkColor}
+    
+%Kopf u. Fußzeilen
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+%\chead{}
+%\ofoot{}
+\cfoot{\pagemark}
+
+\usepackage{mdwlist}
+\usepackage{csquotes}
+
+% Neues bibliographie paket
+% style=apa
+\usepackage[isbn=false,url=false, doi=false, backend=biber, style=numeric]{biblatex}
+%\DeclareLanguageMapping{american}{american-apa}
+
+\usepackage{pdfpages}
+
+\KOMAoptions{DIV=last}
+
+\begin{document}
+
+\begin{titlepage}
+\sffamily
+
+{ \Large Forschungsmethoden WS 2012} \\[2cm]
+    
+{ \Huge \centering \bfseries Übung 5: Zusammenfassung \\[1.5cm] }
+
+%{ \LARGE \centering \bfseries \varpressetext \\[1.5cm] }
+
+%{
+%    \begin{flushright}
+%    { \large
+%       { \bfseries Bewertete Gruppe:~\vargruppe \\ }
+%       \varmitglieder
+%    }
+%
+%    \end{flushright}
+%}
+
+\vfill
+
+{ \large
+   { \bfseries Gruppe: 8 \\ }
+   Bernhard Fleck \\
+   Rafael Konik \\
+   Stephan Matiasch \\
+   Harald Watzke \\
+}
+\end{titlepage}
+
+\section{Zusammenfassung}
+
+\begin{table}[!ht]
+   \begin{center}
+	\begin{tabular}{p{6cm}lm{3cm}}
+    \toprule
+	\textbf{Was haben wir gelernt?} & \textbf{Wobei?} & \textbf{Wieviel haben wir davon profitiert? 0\%~--~100\%} \tabularnewline
+    \midrule
+	 Literatur Recherche & Übung 1 & 70\% \tabularnewline
+     \addlinespace
+ 	 Literatur Zitieren & Übung 1 \& 3 & 65\% \tabularnewline
+     \addlinespace
+	 Implementieren & Übung 2 & 15\% \tabularnewline
+     \addlinespace
+	 Benchmarking & Übung 2 & 35\% \tabularnewline
+     \addlinespace
+	 Interviews, Befragungen & Übung 4 & 75\% \tabularnewline
+     \addlinespace
+	 Technisches all\-ge\-mein\-ver\-ständ\-lich darstellen & Übung 3 & 50\% \tabularnewline
+     \addlinespace
+	 Schreiben eines Technical Paper & Übung 3 & 55\% \tabularnewline
+     \addlinespace
+	 Präsentationstechnik & Übung 1 \% 4 & 60\% \tabularnewline
+     \addlinespace
+	 Wissenschaftliches Arbeiten & bla & 75\% \tabularnewline
+
+     \bottomrule
+	\end{tabular}
+   \end{center}
+\end{table}
+
+\section{Gesamtaufwand der Gruppe}
+
+Der Gesamtaufwand der Gruppe betrug etwa 290 Stunden.\\ Dabei entfiel mehr auf Übung 1 und Übung 2, aufgrund des hohen Stundenaufwands für das Einlesen in die Diplomarbeiten bei Übung 1 und der Implementierungsaufwand bei Übung 2.
+
+\end{document}
